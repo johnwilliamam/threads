@@ -1,57 +1,21 @@
 import LogoThreads from "@/app/assets/logo-threads.svg";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Heart, HomeIcon, MessageCircle, PenSquare, Repeat2, Search, Send, User } from 'lucide-react';
+import { Heart, MessageCircle, MoreHorizontal, Repeat2, Send } from 'lucide-react';
 import Image from "next/image";
-import Link from "next/link";
 import DropdownMenuHome from "./dropdown";
+import Navbar from "./navbar";
 import HomePost from "./post";
 import { PostAvatar } from "./post/post-avatar";
 import { RepliesAvatar } from "./post/replies-avatar";
 import styles from './styles.module.css';
 
-const menus = [
-  {
-    logo: HomeIcon,
-    alt: "Página Inicial",
-    route: "/"
-  },
-  {
-    logo: Search,
-    alt: "Pesquisar usuário",
-    route: "/search"
-  },
-  {
-    logo: PenSquare,
-    alt: "Inicie uma thread...",
-    route: "/post"
-  },
-  {
-    logo: Heart,
-    alt: "Notificações",
-    route: "/notify"
-  },
-  {
-    logo: User,
-    alt: "Perfil",
-    route: "/profile"
-  },
-]
 export default function Home() {
   return (
     <main >
       <nav className="flex justify-between items-center py-1 px-6">
         <Image src={LogoThreads} alt="Icone Threads" height={32}></Image>
-        <ul className="flex">
-          {menus.map(menu => (
-            <li className="px-7 py-5 hover:bg-neutral-800 rounded-xl transition-all duration-300 ease-in-out"
-              key={menu.alt}
-              title={menu.alt}>
-              <Link href={menu.route}>
-                <menu.logo size={28} className="text-neutral-600" />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Navbar />
         <DropdownMenuHome />
       </nav>
       <article className="max-w-lg m-auto">
@@ -66,8 +30,13 @@ export default function Home() {
           <div className={styles.username}>
             <p>johnwilli_am</p>
           </div>
-          <div className={styles.more}>
-            00h ...
+          <div className={cn(styles.more, "flex items-center gap-1")}>
+            <span>
+              00h
+            </span>
+            <Button variant="outline" size='icon' className="rounded-full border-none">
+              <MoreHorizontal />
+            </Button>
           </div>
           <div className={styles.separator}>
             <span className="border-l-zinc-800 h-full border-l-[2px] block ml-5 my-5"></span>
@@ -79,14 +48,14 @@ export default function Home() {
               &#128516;
             </p>
           </div>
-          <div className={cn(styles.reply_avatar,'m-auto')}>
+          <div className={cn(styles.reply_avatar, 'm-auto')}>
             <RepliesAvatar data={[{
-                src:"https://github.com/",fallbackInitials:"JW",
-              },
-              { 
-              src:"https://github.com/johnwilliamam.png",fallbackInitials:"JW"
+              src: "https://github.com/", fallbackInitials: "JW",
+            },
+            {
+              src: "https://github.com/johnwilliamam.png", fallbackInitials: "JW"
             }
-            ]}/>
+            ]} />
           </div>
           <div className={cn(styles.actions, "flex space-x-2 mt-3")}>
             <Heart />
