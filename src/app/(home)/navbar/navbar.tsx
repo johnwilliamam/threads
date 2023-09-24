@@ -48,8 +48,9 @@ export default function Navbar() {
                         key={menu.alt}
                         title={menu.alt}>
                         <Link href={menu.route}>
-                            <menu.logo size={28} className={cn('text-neutral-600', {
-                                'text-threads-text': currRoute == menu.route
+                            <menu.logo size={28} className={cn('text-neutral-600 border-none', {
+                                'text-threads-text': currRoute == menu.route,
+                                'fill-gray-200': currRoute == '/' && menu.logo ==  HomeIcon || currRoute == '/notify' && menu.logo == Heart
                             })} />
                         </Link>
                     </li>
