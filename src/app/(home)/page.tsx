@@ -1,11 +1,8 @@
-import LogoThreads from "@/assets/logo-threads.svg";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { posts } from '@/utils/posts';
 import formatDistanceStrict from 'date-fns/formatDistanceStrict';
 import { Heart, MessageCircle, MoreHorizontal, Repeat2, Send } from 'lucide-react';
-import Image from "next/image";
-import DropdownMenuHome from "./dropdown";
 import Navbar from "./navbar";
 import HomePost from "./post";
 import { PostAvatar } from "./post/post-avatar";
@@ -16,9 +13,7 @@ export default function Home() {
   return (
     <main >
       <nav className="flex justify-between items-center py-1 px-6">
-        <Image src={LogoThreads} alt="Icone Threads" height={32}></Image>
         <Navbar />
-        <DropdownMenuHome />
       </nav>
       <article className="max-w-lg m-auto">
         <section>
@@ -54,13 +49,7 @@ export default function Home() {
                 <p> {post.content} </p>
               </div>
               <div className={cn(styles.reply_avatar, 'm-auto')}>
-                <RepliesAvatar data={[{
-                  src: "https://github.com/", fallbackInitials: "JW",
-                },
-                {
-                  src: "https://github.com/johnwilliamam.png", fallbackInitials: "JW"
-                }
-                ]} />
+                <RepliesAvatar data={post.replies.avatars} />
               </div>
               <div className={cn(styles.actions, "flex space-x-2 mt-3")}>
                 <Heart />
@@ -70,7 +59,7 @@ export default function Home() {
               </div>
               <div className={styles.likes_replies}>
                 <span className="text-sm text-neutral-500">
-                  1 resposta - 99 curtidas
+                  {post.replies.count} {post.replies.count > 1 ? 'respostas' : 'reposta' } - {post.likes} {post.likes > 1 ? 'curtidas' : 'curtida'}
                 </span>
               </div>
             </section>

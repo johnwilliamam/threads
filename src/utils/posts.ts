@@ -15,7 +15,7 @@ export const posts = [{
             count: 1,
             avatars: [{
                 src: 'https://github.com/johnwilliamam.png',
-                initials: 'JW',
+                fallbackInitials: 'JW',
             }]
         },
         likes: 99,
@@ -35,7 +35,7 @@ export const posts = [{
         count: 99,
         avatars: [{
             src: 'https://github.com/johnwilliamam.png',
-            initials: 'JW',
+            fallbackInitials: 'JW',
         }]
     },
     likes: 1,
