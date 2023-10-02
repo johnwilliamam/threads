@@ -25,3 +25,20 @@
 .likes_replies { grid-area: likes_replies; }
 
 .post { grid-area: post; }
+
+
+.container2 {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "inputArea inputArea inputArea"
+    "textResp textResp buttonShare";
+}
+
+.textResp { grid-area: textResp; }
+
+.inputArea { grid-area: inputArea; }
+
+.buttonShare { grid-area: buttonShare; }
