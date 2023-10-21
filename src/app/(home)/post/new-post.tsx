@@ -3,34 +3,43 @@ import {
   Dialog,
   DialogTrigger
 } from "@/components/ui/dialog"
-import { DialogContent } from "@radix-ui/react-dialog"
+import { DialogContent, DialogOverlay } from "@radix-ui/react-dialog"
 import styles from '../styles.module.css'
-export function NewPost() {
+import { PostAvatar } from "./post-avatar"
+
+type PostAvatarProps = {
+  src?: string;
+  fallbackInitials: string;
+  username: string;
+}
+export function NewPost({ src, fallbackInitials, username }: PostAvatarProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
         <p className="text-neutral-500 flex-1 font-light">Inicie uma thread...</p>
       </DialogTrigger>
-      <DialogContent>
-      <div role="dialog" className="gap-2" tabIndex={-1}>
-            <div className="gap-2">
-              <span>Nova thread</span>
-              <span>...</span>
+      <DialogOverlay className={styles.DialogOverlay} />
+      <DialogContent className={styles.DialogContent}>
+        <div className="grid grid-cols-3 bg-transparent h-11 p-6">
+          <div className={styles.newThread}>
+            <span className={styles.textThread}>Nova thread</span>
+          </div>
+          <span className="flex p-1 items-stretch rounded-[50%] mr-[-6px] mt-0 mb-0 mx-0 justify-end hover:cursor-pointer">...</span>
+        </div>
+        <div className={styles.bottomDialog}>
+          <div className={styles.container2}>
+            <div className={styles.containerInput}>
+              <div className={styles.userPhoto}><PostAvatar src={src} fallbackInitials={fallbackInitials} /> </div>
+              <div className={styles.userName}>{username}</div>
+              <div className={styles.inputThread}><input type="text" placeholder="Inicie uma thread..." /></div>
+              <div className={styles.galleryIcon}>IconGallery</div>
             </div>
-            <div className="w-full">
-              <div className={styles.container2}>
-                <div className={styles.inputArea}><input type="text" id='contentThread'></input></div>
-                <div className={styles.textResp}><span>Qualquer pessoa pode responder</span></div>
-                <div className={styles.buttonShare}>
-                  <div className="gap-2 w-max h-9">
-                    <div className="rounded-xl aria-disabled text-neutral border border-gray-500 hover:cursor-not-allowed" role="button" tabIndex={-1}>
-                      <div className="font-semibold text-sm m-1 text-neutral-500">Publicar</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div>
+              <span>Qualquer pessoa pode responder</span>
+              <button>Publicar</button>
             </div>
           </div>
+        </div>
       </DialogContent>
     </Dialog>
   )
