@@ -17,7 +17,7 @@ export default function Home() {
       </nav>
       <article className="max-w-lg m-auto">
         <section>
-          <HomePost />
+          <HomePost src="https://github.com/johnwilliamam.png" fallbackInitials="JW" username="johnwilliam"/>
         </section>
         <span className="border-b-zinc-700 h-full border-b-[1px] block ml-5 my-2"></span>
         <hr className="my-4 h-[0.5px] opacity-20" />
