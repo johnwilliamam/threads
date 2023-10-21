@@ -26,19 +26,130 @@
 
 .post { grid-area: post; }
 
+.dialogPost {
+  position: absolute;
+  display: grid;
+  gap: 0.5rem;
+  height: -webkit-fill-available;
+}
 
-.container2 {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+.DialogOverlay {
+  background-color: rgba(0,0,0,.7);
+  position: fixed;
+  inset: 0;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent {
+  box-shadow: hsla(0, 0%, 15%, 0.726) 0px 10px 38px -10px, hsla(0, 2%, 11%, 0.705) 0px 10px 20px -15px;
+  position: fixed;
+  display: grid;
+  gap: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  height: 75%;
+  max-width: 450px;
+  max-height: 85vh;
+  padding: 25px;
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.DialogContent:focus {
+  outline: none;
+}
+
+.bottomDialog {
+  display: block;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: rgb(243, 245, 247);
+  border-color: rgba(243, 245, 247, 0.15);
+  position: relative;
+}
+
+.container2 {
+  box-sizing: border-box;
+  background-color: rgb(24, 24, 24);
+  border-color: rgba(243, 245, 247, 0.15);
+  border-radius: 6px;
+  height: 118px;
+  padding: 24px 24px 16px 24px;
+  font-size: 15px;
+  line-height: 21px;
+  max-width: 1293px;
+  display: block;
+}
+
+.containerInput {  
+  display: grid;
+  font-size: 15px;
+  grid-template-columns: 48px 522px;
+  grid-template-rows: 21px 19px 38px;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "inputArea inputArea inputArea"
-    "textResp textResp buttonShare";
+    "userPhoto userName"
+    "userPhoto inputThread"
+    "userPhoto galleryIcon";
 }
 
-.textResp { grid-area: textResp; }
+.userPhoto { 
+  grid-area: userPhoto;
+  grid-column-end: auto;
+  grid-row-end: span 2;
+  grid-row-start: 1;
+  margin-top: 4px;
 
-.inputArea { grid-area: inputArea; }
+}
 
-.buttonShare { grid-area: buttonShare; }
+.userName { grid-area: userName; }
+
+.inputThread { grid-area: inputThread; }
+.inputThread > input { 
+  background-color: transparent !important;
+  border: none; 
+}
+
+.galleryIcon { grid-area: galleryIcon; }
+
+
+.newThread {
+  grid-column: 2;
+}
+
+.textThread {
+  white-space: pre-line;
+    color: white;
+    max-width: 100%;
+    pointer-events: all;
+    word-break: break-word;
+    unicode-bidi: isolate;
+    position: relative;
+    display: block;
+    font-family: system-ui,-apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    --base-line-clamp-line-height: calc(1.3125 * 1em);
+    font-size: 16px;
+    font-weight: 700;
+}
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
