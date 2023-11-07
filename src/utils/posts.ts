@@ -7,18 +7,22 @@ export const posts = [{
         },
         name: 'johnwilliamam',
     },
-        createdAt: '2023-09-23T20:33:00',
-        content: `Olha só que incrivel esse clone da última rede social, promissora diga-se de passagem, do gênio Mark Zuckerberg!
+    createdAt: '2023-09-23T20:33:00',
+    content: `Olha só que incrivel esse clone da última rede social, promissora diga-se de passagem, do gênio Mark Zuckerberg!
     Você já usa o Threads ou ainda prefere a X? 
     :D`,
-        replies: {
-            count: 1,
-            avatars: [{
-                src: 'https://github.com/johnwilliamam.png',
-                fallbackInitials: 'JW',
-            }]
+    replies: {
+        count: 2,
+        avatars: [{
+            src: 'https://github.com/johnwilliamam.png',
+            fallbackInitials: 'JW',
         },
-        likes: 99,
+        {
+            src: 'https://github.com',
+            fallbackInitials: 'JW',
+        }]
+    },
+    likes: 99,
 },
 {
     id: 2,
@@ -32,12 +36,12 @@ export const posts = [{
     createdAt: '2023-09-23T20:33:00.00Z',
     content: `Que interessante não?`,
     replies: {
-        count: 99,
+        count: 1,
         avatars: [{
             src: 'https://github.com/johnwilliamam.png',
             fallbackInitials: 'JW',
         }]
     },
-    likes: 1,
+    likes: 5,
 }
 ]
