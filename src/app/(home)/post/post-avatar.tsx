@@ -5,8 +5,8 @@ type PostAvatarProps = {
     fallbackInitials: string;
 }
 export const PostAvatar = ({ src, fallbackInitials }: PostAvatarProps) => (
-    <div className="w-10 h-10">
-        <Avatar>
+    <div className="static w-10 h-10">
+        <Avatar className="static">
             <AvatarImage src={src} alt={fallbackInitials} />
             <AvatarFallback>{fallbackInitials}</AvatarFallback>
         </Avatar>
