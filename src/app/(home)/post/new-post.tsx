@@ -4,6 +4,7 @@ import {
   DialogTrigger
 } from "@/components/ui/dialog"
 import { DialogContent, DialogOverlay } from "@radix-ui/react-dialog"
+import { Image } from "lucide-react"
 import styles from '../styles.module.css'
 import { PostAvatar } from "./post-avatar"
 
@@ -32,9 +33,9 @@ export function NewPost({ src, fallbackInitials, username }: PostAvatarProps) {
               <div className={styles.userPhoto}><PostAvatar src={src} fallbackInitials={fallbackInitials} /> </div>
               <div className={styles.userName}>{username}</div>
               <div className={styles.inputThread}><input type="text" placeholder="Inicie uma thread..." /></div>
-              <div className={styles.galleryIcon}>IconGallery</div>
+              <div className={styles.galleryIcon}><Image /></div>
             </div>
-            <div>
+            <div className="flex justify-around">
               <span>Qualquer pessoa pode responder</span>
               <button>Publicar</button>
             </div>
