@@ -7,8 +7,8 @@ type RepliesAvatarProps = {
     }[];
 };
 let getClass = (index: number)=>{
-    if(index === 0) return "ml-0 h-5 w-5";
-    return "ml-[-0.5rem] w-5 h-5";
+    if(index === 0) return "static ml-0 h-5 w-5";
+    return "static ml-[-0.5rem] w-5 h-5";
 }
 export const RepliesAvatar = ({ data }: RepliesAvatarProps) => (
     <div className="flex mt-5">
