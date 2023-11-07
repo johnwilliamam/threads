@@ -1,4 +1,4 @@
-.container {  
+.container {
   display: grid;
   grid-template-columns: min-content 1fr min-content;
   grid-template-rows: min-content 1fr repeat(2, min-content);
@@ -13,25 +13,39 @@
 
 .avatar {
   display: flex;
+  position: static;
   flex-shrink: 0;
   overflow: hidden;
-  z-index: 0;
-  grid-area: avatar; 
+  grid-area: avatar;
 }
 
-.username { grid-area: username; }
+.username {
+  grid-area: username;
+}
 
-.more { grid-area: more; }
+.more {
+  grid-area: more;
+}
 
-.separator { grid-area: separator; }
+.separator {
+  grid-area: separator;
+}
 
-.reply_avatar { grid-area: reply_avatar; }
+.reply_avatar {
+  grid-area: reply_avatar;
+}
 
-.actions { grid-area: actions; }
+.actions {
+  grid-area: actions;
+}
 
-.likes_replies { grid-area: likes_replies; }
+.likes_replies {
+  grid-area: likes_replies;
+}
 
-.post { grid-area: post; }
+.post {
+  grid-area: post;
+}
 
 .dialogPost {
   position: absolute;
@@ -41,7 +55,7 @@
 }
 
 .DialogOverlay {
-  background-color: rgba(0,0,0,.7);
+  background-color: rgba(0, 0, 0, .7);
   position: fixed;
   inset: 0;
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -81,7 +95,7 @@
 
 .container2 {
   box-sizing: border-box;
-  box-shadow: 0 12px 24px 0 rgba(0,0,0,.08);
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, .08);
   background-color: rgb(24, 24, 24);
   border-color: rgba(243, 245, 247, 0.479);
   border-radius: 6px;
@@ -91,7 +105,7 @@
   display: grid;
 }
 
-.containerInput {  
+.containerInput {
   display: grid;
   font-size: 15px;
   grid-template-columns: 48px 522px;
@@ -105,7 +119,7 @@
     "userPhoto galleryIcon";
 }
 
-.userPhoto { 
+.userPhoto {
   grid-area: userPhoto;
   grid-column-end: auto;
   grid-row-end: span 2;
@@ -114,16 +128,23 @@
 
 }
 
-.userName { grid-area: userName; }
-
-.inputThread { grid-area: inputThread; }
-.inputThread > input { 
-  background-color: transparent !important;
-  border: none;
-  outline: none; 
+.userName {
+  grid-area: userName;
 }
 
-.galleryIcon { grid-area: galleryIcon; }
+.inputThread {
+  grid-area: inputThread;
+}
+
+.inputThread>input {
+  background-color: transparent !important;
+  border: none;
+  outline: none;
+}
+
+.galleryIcon {
+  grid-area: galleryIcon;
+}
 
 
 .newThread {
@@ -132,22 +153,24 @@
 
 .textThread {
   white-space: pre-line;
-    color: white;
-    max-width: 100%;
-    pointer-events: all;
-    word-break: break-word;
-    unicode-bidi: isolate;
-    position: relative;
-    display: block;
-    font-family: system-ui,-apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-    --base-line-clamp-line-height: calc(1.3125 * 1em);
-    font-size: 16px;
-    font-weight: 700;
+  color: white;
+  max-width: 100%;
+  pointer-events: all;
+  word-break: break-word;
+  unicode-bidi: isolate;
+  position: relative;
+  display: block;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  --base-line-clamp-line-height: calc(1.3125 * 1em);
+  font-size: 16px;
+  font-weight: 700;
 }
+
 @keyframes overlayShow {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -158,6 +181,7 @@
     opacity: 0;
     transform: translate(-50%, -48%) scale(0.96);
   }
+
   to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
