@@ -1,13 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { posts } from '@/utils/posts';
-import formatDistanceStrict from 'date-fns/formatDistanceStrict';
-import { Heart, MessageCircle, MoreHorizontal, Repeat2, Send } from 'lucide-react';
 import Navbar from "./navbar";
 import HomePost from "./post";
-import { PostAvatar } from "./post/post-avatar";
-import { RepliesAvatar } from "./post/replies-avatar";
-import styles from './styles.module.css';
+import { Feed } from "./post/feed";
 
 export default function Home() {
   return (
@@ -17,56 +10,11 @@ export default function Home() {
       </nav>
       <article className="max-w-lg m-auto">
         <section>
-          <HomePost src="https://github.com/johnwilliamam.png" fallbackInitials="JW" username="johnwilliam"/>
+          <HomePost src="https://scontent.cdninstagram.com/v/t51.2885-19/357376107_1330597350674698_8884059223384672080_n.jpg?stp=dst-jpg_s320x320&_nc_ht=scontent.cdninstagram.com&_nc_cat=1&_nc_ohc=DAE4RaO6OucAX-o29VY&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfD8ET8S-W7_WkIBWyTZo62ELXeQ8te5EXPHgggBM9iV-A&oe=6552FAC0&_nc_sid=10d13b" fallbackInitials="MK" username="zuck" />
         </section>
         <span className="border-b-zinc-700 h-full border-b-[1px] block ml-5 my-2"></span>
         <hr className="my-4 h-[0.5px] opacity-20" />
-
-        <div className="space-y-6">
-          {posts.map((post) => (
-              <><section key={post.id} className={styles.container}>
-              <div className={styles.avatar}>
-                <PostAvatar src={post.user.profilePicture.src} fallbackInitials={post.user.profilePicture.initials} />
-              </div>
-              <div className={styles.username}>
-                <p>{post.user.name}</p>
-              </div>
-              <div className={cn(styles.more, "flex items-center gap-1")}>
-                <span className="min-w-[60px] text-gray-500"
-                  title={new Date(post.createdAt).toDateString()}>
-                  {formatDistanceStrict(new Date(post.createdAt), new Date(), {
-                    addSuffix: false
-                  })}
-                </span>
-                <Button variant="outline" size='icon' className="rounded-full border-none">
-                  <MoreHorizontal />
-                </Button>
-              </div>
-              <div className={styles.separator}>
-                <span className="border-l-zinc-700 h-full border-l-[2px] block ml-5 my-2"></span>
-              </div>
-              <div className={styles.post}>
-                <p> {post.content} </p>
-              </div>
-              <div className={cn(styles.reply_avatar, 'm-auto')}>
-                <RepliesAvatar data={post.replies.avatars} />
-              </div>
-              <div className={cn(styles.actions, "flex space-x-2 mt-3")}>
-                <Heart />
-                <MessageCircle />
-                <Repeat2 />
-                <Send />
-              </div>
-              <div className={styles.likes_replies}>
-                <span className="text-sm text-neutral-500">
-                  {post.replies.count} {post.replies.count > 1 ? 'respostas' : 'reposta' } - {post.likes} {post.likes > 1 ? 'curtidas' : 'curtida'}
-                </span>
-              </div>
-            </section>
-            <span className="border-b-zinc-700 h-full border-b-[1px] block ml-5 my-2"></span>
-            </>
-          ))}
-        </div>
+        <Feed />
       </article>
     </main>
   )

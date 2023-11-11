@@ -143,6 +143,7 @@
 }
 
 .galleryIcon {
+  margin-top: 10px;
   grid-area: galleryIcon;
 }
 
